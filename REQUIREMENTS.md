@@ -45,25 +45,25 @@ Json
 
 # Data Shapes
 ### Product
-* id
-* name
-* price
-* category
+* id (integer)
+* name (VARCHAR(255))
+* price (integer)
+* category (VARCHAR(255))
 
 ### User
-* id
-* firstName
-* lastName
-* password
+* id (integer)
+* firstName (VARCHAR(255))
+* lastName (VARCHAR(255))
+* password (VARCHAR(255))
 
 ### Orders
-* id
-* user_id
-* status 
+* id (integer)
+* user_id (bigint)
+* status (VARCHAR(255))
 
 ### [ADDED] order_products
-* id
-* id (for order)
-* id (for product in order)
-* quantity 
+* id (integer)
+* id (for order) (bigint)
+* id (for product in order) (bigint)
+* quantity (integer)
 

@@ -1,6 +1,9 @@
 import supertest from "supertest";
 import app from "../server";
+import { usersFns } from "../models/usersModel";
 
+
+const userStore = new usersFns();
 const request = supertest(app);
 
 describe("User Endpoints", () => {
@@ -28,4 +31,23 @@ describe("User Endpoints", () => {
         expect(response.status).toBe(200);
     });
 
+});
+
+describe('User Functions', () => {
+    it('index function', async () => {
+        const user = await userStore.index();
+        expect(user).toBeDefined();
+    });
+    it('create function', async () => {
+        const user = await userStore.create({
+            firstName: "test",
+            lastName: "test",
+            passWord: "test",
+        });
+        expect(user).toBeDefined();
+    });
+    it('show function', async () => {
+        const user = await userStore.show(1);
+        expect(user).toBeDefined();
+    });
 });

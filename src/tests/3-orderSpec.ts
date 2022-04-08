@@ -1,6 +1,9 @@
 import supertest from "supertest";
 import app from "../server";
+import { orderFns } from "../models/ordersModel";
 
+
+const orderStore = new orderFns();
 const request = supertest(app);
 
 
@@ -43,4 +46,26 @@ describe("Orders Endpoints", () => {
     });
 
 
+});
+
+describe("Order Functions", () => {
+    it("index function", async () => {
+        const order = await orderStore.index();
+        expect(order).toBeDefined();
+    });
+    it("create function", async () => {
+        const order = await orderStore.create({
+            userId: 1,
+            status: "completed",
+        });
+        expect(order).toBeDefined();
+    });
+    it("getCompletedOrders function", async () => {
+        const order = await orderStore.getCompletedOrders(1);
+        expect(order).toBeDefined();
+    });
+    it("getOrderByUserId function", async () => {
+        const order = await orderStore.getOrderByUserId(1);
+        expect(order).toBeDefined();
+    });
 });
