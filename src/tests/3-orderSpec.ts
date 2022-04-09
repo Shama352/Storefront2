@@ -58,14 +58,10 @@ describe("Order Functions", () => {
             userId: 1,
             status: "completed",
         });
-        expect(order).toBeDefined();
+        expect(order).toBeInstanceOf(Object);
     });
     it("getCompletedOrders function", async () => {
         const order = await orderStore.getCompletedOrders(1);
-        expect(order).toBeDefined();
-    });
-    it("getOrderByUserId function", async () => {
-        const order = await orderStore.getOrderByUserId(1);
         expect(order).toBeDefined();
     });
 });

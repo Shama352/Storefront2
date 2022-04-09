@@ -34,11 +34,15 @@ describe("User Endpoints", () => {
 });
 
 describe('User Functions', () => {
-    it('index function', async () => {
-        const user = await userStore.index();
-        expect(user).toBeDefined();
+    it("should return a user object", async (): Promise<void> => {
+        const user = await userStore.create({
+            firstName: "test",
+            lastName: "test",
+            passWord: "test"
+        });
+        expect(user).toBeInstanceOf(Object);
     });
-    it('create function', async () => {
+    it('create function test', async () => {
         const user = await userStore.create({
             firstName: "test",
             lastName: "test",
@@ -46,8 +50,8 @@ describe('User Functions', () => {
         });
         expect(user).toBeDefined();
     });
-    it('show function', async () => {
+    it("should return a user", async (): Promise<void> => {
         const user = await userStore.show(1);
-        expect(user).toBeDefined();
+        expect(user).toBeInstanceOf(Object);
     });
 });

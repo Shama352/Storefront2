@@ -32,20 +32,16 @@ describe("Product Functions", () => {
         expect(product).toBeDefined();
 
     });
-    it('create function', async () => {
+    it('Should return an object of product', async () => {
         const product = await productStore.create({
             name: "test",
             price: 200,
             category: "test",
         });
-        expect(product).toBeDefined();
+        expect(product).toBeInstanceOf(Object)
     });
     it('getProdcutsByCategory function', async () => {
         const product = await productStore.getProdCat("test");
-        expect(product).toBeDefined();
-    });
-    it('show function', async () => {
-        const product = await productStore.show(1);
-        expect(product).toBeDefined();
+        expect(product).toBeInstanceOf(Object);
     });
 });
